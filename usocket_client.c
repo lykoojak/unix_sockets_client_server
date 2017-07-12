@@ -1,3 +1,7 @@
+/*
+author: Jakub Lyko
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -42,8 +46,8 @@ int main(int argc, char *argv[] )
 	client_sockaddr.sun_family = AF_UNIX;
 	//strncpy(client_sockaddr.sun_path, CLIENT_PATH);
 	client_sockaddr.sun_path[0] = '\0';
-    strncpy(client_sockaddr.sun_path + 1, CLIENT_PATH, strlen(CLIENT_PATH) );
-    strncpy(client_sockaddr.sun_path + 1 + strlen(CLIENT_PATH), argv[1], strlen(argv[1])); //add client id
+	strncpy(client_sockaddr.sun_path + 1, CLIENT_PATH, strlen(CLIENT_PATH) );
+	strncpy(client_sockaddr.sun_path + 1 + strlen(CLIENT_PATH), argv[1], strlen(argv[1])); //add client id
 	len = sizeof(client_sockaddr);
 
 	unlink(CLIENT_PATH);
@@ -104,7 +108,7 @@ int main(int argc, char *argv[] )
 	}
 
 	/******************************/
-	/* Close the socket and exit. */
+	/*In the end  close the socket. */
 	/******************************/
 	close(client_sock);
 }
