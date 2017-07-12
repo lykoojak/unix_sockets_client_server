@@ -22,10 +22,12 @@ int main(int argc, char *argv[] )
 	struct sockaddr_un server_sockaddr;
 	struct sockaddr_un client_sockaddr;
 	char buf[256];
+	int a = argc;  // remove this later
 	memset(&server_sockaddr, 0, sizeof(struct sockaddr_un));
 	memset(&client_sockaddr, 0, sizeof(struct sockaddr_un));
 
-	if(argc < 2) {
+	//if(argc < 2) {
+	if(a < 2) {
 		printf("argc < 2\n");
 		exit(1);
 	}
